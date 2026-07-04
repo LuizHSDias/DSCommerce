@@ -1,73 +1,207 @@
-# React + TypeScript + Vite
+# 🛒 DSCommerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de e-commerce desenvolvido durante o treinamento da **DevSuperior**, com o objetivo de praticar o desenvolvimento de aplicações Full Stack utilizando Java, Spring Boot e React.
 
-Currently, two official plugins are available:
+## 📖 Sobre o projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O **DSCommerce** é uma aplicação de comércio eletrônico que permite aos usuários navegar por um catálogo de produtos, adicionar itens ao carrinho de compras, realizar autenticação e registrar pedidos. O sistema também possui uma área administrativa para gerenciamento de produtos.
 
-## React Compiler
+O projeto foi desenvolvido com foco na aplicação de boas práticas de arquitetura, APIs REST, autenticação, controle de acesso e integração entre frontend e backend.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 👤 Área Pública
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Listagem paginada de produtos
+- Pesquisa de produtos por nome
+- Visualização dos detalhes do produto
+- Adição de produtos ao carrinho
+- Alteração da quantidade dos itens do carrinho
+- Remoção de itens do carrinho
+- Login de usuários
+- Finalização do pedido
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 🔐 Área Administrativa
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Login de administrador
+- Listagem de produtos
+- Cadastro de novos produtos
+- Edição de produtos
+- Exclusão de produtos
+
+---
+
+## 📷 Telas
+
+### Área do Cliente
+
+- Catálogo de produtos
+- Detalhes do produto
+- Carrinho de compras
+- Login
+- Confirmação do pedido
+
+### Área Administrativa
+
+- Dashboard
+- Listagem de produtos
+- Cadastro/Edição de produtos
+
+---
+
+## 🛠 Tecnologias utilizadas
+
+### Backend
+
+- Java
+- Spring Boot
+- Spring Web
+- Spring Data JPA
+- Spring Security
+- OAuth2 / JWT
+- Hibernate
+- Maven
+
+### Frontend
+
+- React
+- TypeScript
+- React Router
+- Axios
+- CSS
+
+### Banco de Dados
+
+- H2 Database
+- PostgreSQL
+
+### Ferramentas
+
+- Git
+- GitHub
+- Postman
+- Figma
+
+---
+
+## 🚀 Funcionalidades implementadas
+
+- ✔ Cadastro de produtos
+- ✔ Atualização de produtos
+- ✔ Exclusão de produtos
+- ✔ Pesquisa por nome
+- ✔ Paginação
+- ✔ Login com autenticação
+- ✔ Controle de acesso por perfil
+- ✔ Carrinho de compras
+- ✔ Registro de pedidos
+
+---
+
+## 📌 Regras de negócio
+
+- Apenas administradores podem gerenciar produtos.
+- Usuários autenticados podem finalizar pedidos.
+- Usuários não autenticados podem navegar pelo catálogo e utilizar o carrinho.
+- O carrinho calcula automaticamente o valor total da compra.
+
+---
+
+## 🔐 Perfis de acesso
+
+### Cliente
+
+- Consultar catálogo
+- Visualizar detalhes do produto
+- Gerenciar carrinho
+- Realizar pedidos
+
+### Administrador
+
+- Todas as permissões do cliente
+- Cadastro de produtos
+- Atualização de produtos
+- Exclusão de produtos
+
+---
+
+## ▶ Como executar o projeto
+
+Este projeto está dividido em dois repositórios:
+
+- **Backend (Spring Boot):** https://github.com/LuizHSDias/Back-End-Ecommerce
+- **Frontend (React):** https://github.com/LuizHSDias/DSCommerce
+
+### 1️⃣ Clonar o Backend
+
+```bash
+git clone https://github.com/LuizHSDias/Back-End-Ecommerce.git
+
+cd Back-End-Ecommerce
+
+mvn spring-boot:run
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 2️⃣ Clonar o Frontend
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/LuizHSDias/DSCommerce.git
+
+cd DSCommerce
+
+npm install
+
+npm start
 ```
+
+ou
+
+```bash
+yarn
+
+yarn start
+```
+
+---
+
+## 🔗 Comunicação entre as aplicações
+
+O frontend consome a API REST disponibilizada pelo backend. Antes de iniciar o frontend, certifique-se de que o backend esteja em execução.
+
+## 📚 Aprendizados
+
+Durante o desenvolvimento deste projeto foram praticados conceitos como:
+
+- Arquitetura em camadas
+- APIs REST
+- CRUD completo
+- Relacionamentos JPA
+- Spring Security
+- JWT Authentication
+- Controle de acesso por Roles
+- Paginação
+- Validação de dados
+- Integração Frontend x Backend
+- Organização de componentes React
+
+---
+
+## 📄 Documento de requisitos
+
+Este projeto foi desenvolvido seguindo o documento de requisitos disponibilizado pela **DevSuperior**, contemplando os principais casos de uso do sistema de e-commerce.
+
+---
+
+## 👨‍💻 Autor
+
+**Luiz Henrique**
+
+---
+
+## 🎓 Créditos
+
+Projeto desenvolvido como parte do treinamento da **DevSuperior**, ministrado pelo professor **Nélio Alves**, com finalidade educacional e prática no desenvolvimento de aplicações Full Stack.
