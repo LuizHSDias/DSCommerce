@@ -9,9 +9,9 @@ import * as productService from '../../../services/product-service';
 
 function Catalog(){
 
-    
-
     const [products, setProducts] = useState<ProductDTO[]>([]);
+
+    const [productName, setProductName] = useState("");
 
     /*
     const objTest : CategoryDTO = {
@@ -28,16 +28,20 @@ function Catalog(){
      // const obj = JSON.parse(localStorage.getItem("minhaCategoria") || "{}");
      // console.log(obj.name);
 
-      productService.findAll().then(response => {
+      productService.findPageRequest(0, "").then(response => {
         setProducts(response.data.content);
       });
-    }, []);
+    }, [productName]);
+
+    function handleSearch(searchText: string){
+      setProductName(searchText)
+    }
     
     return (
 
       <main>
       <section id="catalog-section" className="dsc-container">
-        <SearchBar />
+        <SearchBar onSearch={handleSearch} />
 
         <div className="dsc-catalog-cards dsc-mb20 dsc-mt20">
 
